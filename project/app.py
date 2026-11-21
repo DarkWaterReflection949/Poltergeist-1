@@ -1,4 +1,4 @@
-# AI disclosure (CS50 final project policy): first draft generated with Claude (Anthropic).
+#(CS50 final project policy).
 # Replace this note with a description of what YOU changed or wrote.
 """Poltergeist web app.  Run:  flask --app app run   (then open http://127.0.0.1:5000)"""
 import os
