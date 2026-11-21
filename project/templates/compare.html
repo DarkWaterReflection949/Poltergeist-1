@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Compare · Poltergeist{% endblock %}
+{% block content %}
+<h1>Run #{{ run_a['id'] }} to run #{{ run_b['id'] }}</h1>
+<p class="lede">Silent Corruption Rate: <strong>{{ (run_a['silent_rate'] * 100)|round|int }}%</strong> ({{ run_a['pipeline'] }}) to <strong>{{ (run_b['silent_rate'] * 100)|round|int }}%</strong> ({{ run_b['pipeline'] }}).</p>
+<table class="results">
+  <thead><tr><th>Corruption</th><th>Before</th><th>After</th><th>Change</th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr>
+      <td><strong>{{ r['mutator'] }}</strong></td>
+      <td>{% if r['a'] %}<span class="badge v-{{ r['a'] }}">{{ labels[r['a']] }}</span>{% else %}not run{% endif %}</td>
+      <td>{% if r['b'] %}<span class="badge v-{{ r['b'] }}">{{ labels[r['b']] }}</span>{% else %}not run{% endif %}</td>
+      <td class="change {{ r['change'] }}">{{ r['change'] }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

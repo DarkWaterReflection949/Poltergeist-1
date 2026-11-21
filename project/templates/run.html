@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Run #{{ run['id'] }} · Poltergeist{% endblock %}
+{% block content %}
+<p class="meta">Run #{{ run['id'] }} · {{ run['pipeline'] }} on {{ run['csv_name'] }} · seed {{ run['seed'] }} · {{ (run['rate'] * 100)|round|int }}% of rows corrupted · {{ run['created_at'] }}</p>
+
+<section class="verdict-hero {{ 'bad' if run['silent'] else 'good' }}">
+  <p class="big">{{ (run['silent_rate'] * 100)|round|int }}%</p>
+  <div>
+    <h1>Silent Corruption Rate</h1>
+    <p>{{ run['silent'] }} of {{ run['applied'] }} corruptions produced wrong output with no error.</p>
+  </div>
+</section>
+
+<ul class="tally">
+  {% for v in verdicts %}<li class="v-{{ v }}"><strong>{{ counts[v] }}</strong> {{ labels[v]|lower }}</li>{% endfor %}
+</ul>
+
+<table class="results">
+  <thead><tr><th>Corruption</th><th>Type</th><th>Rows hit</th><th>Verdict</th></tr></thead>
+  <tbody>
+  {% for r in results %}
+    <tr class="haunt v-{{ r['verdict'] }}" style="--i: {{ loop.index0 }}">
+      <td>
+        <details>
+          <summary><strong>{{ r['mutator'] }}</strong><span class="desc">{{ r['description'] }}</span></summary>
+          <p class="detail">{{ r['detail'] }}</p>
+          {% if r['hint'] %}<p class="hint"><strong>Fix:</strong> {{ r['hint'] }}</p>{% endif %}
+        </details>
+      </td>
+      <td>{{ r['kind'] }}</td>
+      <td>{{ r['touched'] }}</td>
+      <td><span class="badge v-{{ r['verdict'] }}">{{ labels[r['verdict']] }}</span></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p class="meta"><a href="{{ url_for('history') }}">Compare this run with another</a> after you fix your pipeline.</p>
+{% endblock %}
