@@ -1,4 +1,4 @@
-# AI disclosure (CS50 final project policy): first draft generated with Claude (Anthropic).
+#(CS50 final project policy).
 # Replace this note with a description of what YOU changed or wrote.
 """Guess what kind of data each column holds, so mutators know where to strike."""
 import re
