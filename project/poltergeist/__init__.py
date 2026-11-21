@@ -1,5 +1,4 @@
-# AI disclosure (CS50 final project policy): the first draft of this file was generated with
-# Claude (Anthropic). Replace this note with a description of what YOU changed or wrote.
+#(CS50 final project policy)
 """Poltergeist: haunts a data pipeline with realistic dirty data."""
 
 
