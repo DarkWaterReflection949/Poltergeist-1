@@ -1,4 +1,4 @@
-# AI disclosure (CS50 final project policy): first draft generated with Claude (Anthropic).
+#(CS50 final project policy).
 # Replace this note with a description of what YOU changed or wrote.
 """SQLite history: every haunting is stored so you can watch a pipeline get sturdier."""
 import datetime
