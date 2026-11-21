@@ -1,4 +1,4 @@
-# AI disclosure (CS50 final project policy): first draft generated with Claude (Anthropic).
+#(CS50 final project policy).
 # Replace this note with a description of what YOU changed or wrote.
 """Runs the user's pipeline in a separate process and reports one JSON line per test case.
 
