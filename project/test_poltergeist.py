@@ -1,4 +1,4 @@
-# AI disclosure (CS50 final project policy): first draft generated with Claude (Anthropic).
+#(CS50 final project policy).
 # Replace this note with a description of what YOU changed or wrote.
 """Run with:  python -m unittest -v"""
 import os
